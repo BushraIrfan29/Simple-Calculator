@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Input Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        h1{
+            text-align: center;
+            color:#45a049;
+            text-decoration:underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>CALCULATOR</h1>
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+
+        <div>
+            <button onclick="calculate('+')">+</button>
+            <button onclick="calculate('-')">-</button>
+            <button onclick="calculate('*')">*</button>
+            <button onclick="calculate('/')">/</button>
+        </div>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculate(operation) {
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            let result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                result = "Please enter valid numbers.";
+            } else {
+                switch(operation) {
+                    case '+':
+                        result = num1 + num2;
+                        break;
+                    case '-':
+                        result = num1 - num2;
+                        break;
+                    case '*':
+                        result = num1 * num2;
+                        break;
+                    case '/':
+                        result = num1 / num2;
+                        break;
+                }
+            }
+
+            document.getElementById('result').innerHTML = "Result: " + result;
+        }
+    </script>
+</body>
+</html>
